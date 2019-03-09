@@ -1,6 +1,6 @@
 {
 	"name": "@dialoguetree/static-gen",
-	"version": "0.0.1",
+	"version": "0.1.0",
 	"description": "generates static sites from ejs templates",
 	"main": "./lib/index.js",
 	"bin": "./bin/cli.js",

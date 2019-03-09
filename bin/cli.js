@@ -20,18 +20,6 @@ commander
 	});
 
 commander
-	.command('clear')
-	.description('Clears the default output directory')
-	.action( async () => {
-		console.log(colors.green(`Deleting ./dist`));
-		try {
-			await fs.emptyDir('./dist');
-		} catch (error) {
-			console.error(error);
-		}
-	});
-
-commander
 	.command('build [configjson]')
 	.description('Build site based on provided config, or looks for `site.config.json` by default')
 	.action( async (configjson) => {
@@ -39,17 +27,29 @@ commander
 			configjson = './site.config.json';
 		}
 
-		if (await fs.exists(configjson)) {
-			const siteConfig = await fs.readJSON(configjson);
-			const builder = new Builder(siteConfig);
+		try {
+			if (await fs.exists(configjson)) {
+				const siteConfig = await fs.readJSON(configjson);
+				debug('loaded config', configjson);
 
-			debug('loaded config', siteConfig);
-
-			builder.build();
-
-		} else {
-			console.log(colors.red(`File ${configjson} does not exist...`));
+				const builder = new Builder(siteConfig);
+				builder.build();
+			} else {
+				console.log(colors.red(`File ${configjson} does not exist...`));
+			}
+		} catch (error) {
+			console.error(error);
 		}
 	});
 
+commander
+	.command('*', 'foo', {})
+	.action( async () => {
+		commander.outputHelp();
+	});
+
 commander.parse(process.argv);
+
+if (process.argv.length == 2) {
+	commander.outputHelp();
+}

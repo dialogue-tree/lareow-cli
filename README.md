@@ -11,3 +11,7 @@ Create new site with `npx @dialoguetree/static-gen init` (or `static-gen init` i
 
 ### Building
 Build your site with `npx @dialoguetree/static-gen build <site.config.json>`. You only need to provide the file path if it is different from the default.
+
+## Templates
+Currently templating is supported via EJS (https://ejs.co/).
+
