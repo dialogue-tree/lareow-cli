@@ -1,8 +1,8 @@
 {
-	"name": "static-gen",
-	"version": "1.0.0",
+	"name": "@dialoguetree/static-gen",
+	"version": "0.0.1",
 	"description": "static-gen",
-	"main": "index.js",
+	"main": "./lib/index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
@@ -24,5 +24,15 @@
 	"bugs": {
 		"url": "https://github.com/pinkkis/static-gen/issues"
 	},
-	"homepage": "https://github.com/pinkkis/static-gen#readme"
+	"homepage": "https://github.com/pinkkis/static-gen#readme",
+	"devDependencies": {
+		"debug": "^4.1.1"
+	},
+	"dependencies": {
+		"fs-extra": "^7.0.1",
+		"glob": "^7.1.3",
+		"commander": "^2.19.0",
+		"ejs": "^2.6.1",
+		"inquirer": "^6.2.2"
+	}
 }
