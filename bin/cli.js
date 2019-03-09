@@ -6,7 +6,7 @@ const fs = require('fs-extra');
 const { Builder, Initializer } = require('../lib');
 
 yargs
-	.scriptName('Lareow-cli')
+	.scriptName('lareow')
 	.demandCommand(1)
 	.usage('$0 <cmd> [args]')
 	// .command('version', 'Returns the version of the tool')
