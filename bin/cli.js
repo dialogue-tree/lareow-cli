@@ -3,34 +3,20 @@ const debug = require('debug')('SiteGen:CLI');
 const commander = require('commander');
 const colors = require('colors/safe');
 const fs = require('fs-extra');
-
-const Builder = require('../lib');
-
+const {Builder, Initializer} = require('../lib');
 const version = require('../package.json').version;
-const defaultSiteConfig = require('../lib/config/defaultSiteConfig');
 
 commander
 	.name('static-gen')
 	.version(version, '-v, --version');
 
-// commander
-// 	.command('help')
-// 	.action( () => {
-// 		console.log('foo help');
-// 	});
-
 commander
 	.command('init')
-	.description('Creates a `site.config.json` in the current directory with the default site options')
+	.description('Initialize a new site, creating files and a folder structure. Warning, can overwrite some files.')
 	.action( async () => {
-		debug('Initializing with default config \n %o', defaultSiteConfig);
-		console.log(colors.green('Initializing new site.config.json'));
-
-		if (await fs.exists('./site.config.json')) {
-			console.log(colors.yellow('A site.config.json already exists...'));
-		} else {
-			fs.writeJSON('./site.config.json', defaultSiteConfig, {spaces: 4});
-		}
+		debug('Initializing with default config');
+		console.log(colors.green('Initializing new site.'));
+		Initializer.init();
 	});
 
 commander
@@ -38,7 +24,11 @@ commander
 	.description('Clears the default output directory')
 	.action( async () => {
 		console.log(colors.green(`Deleting ./dist`));
-		await fs.emptyDir('./dist');
+		try {
+			await fs.emptyDir('./dist');
+		} catch (error) {
+			console.error(error);
+		}
 	});
 
 commander
