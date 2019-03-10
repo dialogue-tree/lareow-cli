@@ -1,0 +1,177 @@
+{
+	"definitions": {},
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "http://example.com/root.json",
+	"type": "object",
+	"title": "The Lareow Site Schema",
+	"required": [
+		"$schema",
+		"version",
+		"buildOutputDir",
+		"sourceRoot",
+		"siteConfigJsonFile",
+		"globs",
+		"locations",
+		"templateLanguage",
+		"styleLanguage",
+		"scriptLanguage",
+		"scripts",
+		"styles"
+	],
+	"properties": {
+		"$schema": {
+			"$id": "#/properties/$schema",
+			"type": "string",
+			"title": "The $schema Schema",
+			"default": "../node_modules/@dialoguetree/lareow-cli/lib/config/optionsSchema.json",
+			"pattern": "^(.*)$"
+		},
+		"version": {
+			"$id": "#/properties/version",
+			"type": "integer",
+			"title": "The Version Schema",
+			"default": 1
+		},
+		"buildOutputDir": {
+			"$id": "#/properties/buildOutputDir",
+			"type": "string",
+			"title": "The Buildoutputdir Schema",
+			"default": "dist",
+			"pattern": "^(.*)$"
+		},
+		"tempDir": {
+			"$id": "#/properties/tempDir",
+			"type": "string",
+			"title": "The Tempdir Schema",
+			"default": "build",
+			"examples": [],
+			"pattern": "^(.*)$"
+		},
+		"sourceRoot": {
+			"$id": "#/properties/sourceRoot",
+			"type": "string",
+			"title": "The Sourceroot Schema",
+			"default": "src",
+			"examples": [],
+			"pattern": "^(.*)$"
+		},
+		"siteConfigJsonFile": {
+			"$id": "#/properties/siteConfigJsonFile",
+			"type": "string",
+			"title": "The Siteconfigjsonfile Schema",
+			"default": "site.config.json",
+			"examples": ["site.json", "config.json"],
+			"pattern": "^(.*)$"
+		},
+		"globs": {
+			"$id": "#/properties/globs",
+			"type": "object",
+			"title": "The Globs Schema",
+			"required": [
+				"pages"
+			],
+			"properties": {
+				"pages": {
+					"$id": "#/properties/globs/properties/pages",
+					"type": "string",
+					"title": "The Pages Schema",
+					"default": "**/*.ejs",
+					"examples": [],
+					"pattern": "^(.*)$"
+				}
+			}
+		},
+		"locations": {
+			"$id": "#/properties/locations",
+			"type": "object",
+			"title": "The Locations Schema",
+			"required": [
+				"assets",
+				"pages",
+				"layouts",
+				"partials",
+				"data",
+				"defaultLayout"
+			],
+			"properties": {
+				"assets": {
+					"$id": "#/properties/locations/properties/assets",
+					"type": "string",
+					"title": "The Assets Schema",
+					"default": "assets",
+					"pattern": "^(.*)$"
+				},
+				"pages": {
+					"$id": "#/properties/locations/properties/pages",
+					"type": "string",
+					"title": "The Pages Schema",
+					"default": "pages",
+					"pattern": "^(.*)$"
+				},
+				"layouts": {
+					"$id": "#/properties/locations/properties/layouts",
+					"type": "string",
+					"title": "The Layouts Schema",
+					"default": "layouts",
+					"pattern": "^(.*)$"
+				},
+				"partials": {
+					"$id": "#/properties/locations/properties/partials",
+					"type": "string",
+					"title": "The Partials Schema",
+					"default": "partials",
+					"pattern": "^(.*)$"
+				},
+				"data": {
+					"$id": "#/properties/locations/properties/data",
+					"type": "string",
+					"title": "The Data Schema",
+					"default": "data",
+					"pattern": "^(.*)$"
+				},
+				"defaultLayout": {
+					"$id": "#/properties/locations/properties/defaultLayout",
+					"type": "string",
+					"title": "The Defaultlayout Schema",
+					"default": "default.ejs",
+					"examples": [
+						"index.ejs",
+						"default.ejs"
+					],
+					"pattern": "^(.*)$"
+				}
+			}
+		},
+		"templateLanguage": {
+			"$id": "#/properties/templateLanguage",
+			"type": "string",
+			"title": "The Templatelanguage Schema",
+			"default": "ejs",
+			"pattern": "^(.*)$"
+		},
+		"styleLanguage": {
+			"$id": "#/properties/styleLanguage",
+			"type": "string",
+			"title": "The Stylelanguage Schema",
+			"default": "css",
+			"pattern": "^(.*)$"
+		},
+		"scriptLanguage": {
+			"$id": "#/properties/scriptLanguage",
+			"type": "string",
+			"title": "The Scriptlanguage Schema",
+			"default": "js",
+			"pattern": "^(.*)$"
+		},
+		"scripts": {
+			"$id": "#/properties/scripts",
+			"type": "object",
+			"title": "The Scripts Schema"
+		},
+		"styles": {
+			"$id": "#/properties/styles",
+			"type": "object",
+			"title": "The Styles Schema"
+		}
+	}
+}

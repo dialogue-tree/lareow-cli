@@ -11,13 +11,23 @@ yargs
 	.usage('$0 <cmd> [args]')
 	// .command('version', 'Returns the version of the tool')
 	.command(
-		'init',
-		'Initialize a new site in the current directory',
-		{},
-		async () => {
+		'init <project>',
+		'Initialize a new site in the given directory',
+		yargs => {
+			yargs.positional('project', {
+				describe: 'Folder name to be created for the project.'
+			});
+		},
+		async argv => {
 			debug('Initializing with default config');
-			console.log(colors.green('Initializing new site.'));
-			Initializer.init();
+			const projectPath = argv.project || '.';
+			const initializer = new Initializer(projectPath);
+
+			try {
+				await initializer.init();
+			} catch(error) {
+				console.error(error);
+			}
 		}
 	)
 	.command(

@@ -1,0 +1,17 @@
+{
+	"name": "",
+	"version": "1.0.0",
+	"description": "Site created with Lareow-cli",
+	"scripts": {
+		"serve":"cross-env NODE_ENV=development lareow build --watch",
+		"build":"cross-env NODE_ENV=production lareow build"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {},
+	"devDependencies": {
+		"@dialoguetree/lareow-cli": "0.x.x",
+		"cross-env": "^5.2.0"
+	}
+}
