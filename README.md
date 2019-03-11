@@ -1,4 +1,5 @@
-# Lareow-cli
+# Lareow-cli :computer:
+![build status](https://travis-ci.com/dialogue-tree/lareow-cli.svg?branch=master)
 
 Lareow static site generator CLI.
 
